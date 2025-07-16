@@ -9,6 +9,7 @@ dependencies = [
     "asyncpg==0.30.0",
 ]
 
+
 [project.optional-dependencies]
 aiogram = [
     "aio-pika==9.5.5",
@@ -22,3 +23,7 @@ celery = [
     "aiohttp[speedups]==3.12.13",
     "telethon[cryptg]==1.40.0",
 ]
+
+
+[tool.setuptools]
+packages = ["clickhouse", "coin_gecko", "open_exch_rates", "postgres", "rabbitmq", "telegram"]
