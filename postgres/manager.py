@@ -7,8 +7,8 @@ from .settings import PostgresSettings
 class PostgresManager:
     _pool: Optional[asyncpg.Pool] = None
 
-    def __init__(self):
-        self.settings = PostgresSettings()
+    def __init__(self, settings: PostgresSettings):
+        self.settings = settings
 
     async def connect(self):
         if self._pool is None:
@@ -20,10 +20,7 @@ class PostgresManager:
 
             self._pool = None
 
-postgres_manager = PostgresManager()
-
 
 __all__ = [
-    "postgres_manager",
     "PostgresManager"
 ]

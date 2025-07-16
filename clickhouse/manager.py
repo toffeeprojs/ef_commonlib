@@ -7,8 +7,8 @@ from .settings import ClickHouseSettings
 class ClickHouseManager:
     _pool: Optional[asynch.Pool] = None
 
-    def __init__(self):
-        self.settings = ClickHouseSettings()
+    def __init__(self, settings: ClickHouseSettings):
+        self.settings = settings
 
     async def connect(self):
         if self._pool is None:
@@ -22,10 +22,7 @@ class ClickHouseManager:
 
             self._pool = None
 
-clickhouse_manager = ClickHouseManager()
-
 
 __all__ = [
-    "clickhouse_manager",
     "ClickHouseManager"
 ]

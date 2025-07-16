@@ -1,7 +1,6 @@
-from .manager import clickhouse_manager, ClickHouseManager
+from .manager import ClickHouseManager
 
 
 __all__ = [
-    "clickhouse_manager",
     "ClickHouseManager"
 ]

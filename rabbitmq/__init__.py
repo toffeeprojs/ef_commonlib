@@ -1,7 +1,6 @@
-from .manager import rabbitmq_manager, RabbitMQManager
+from .manager import RabbitMQManager
 
 
 __all__ = [
-    "rabbitmq_manager",
     "RabbitMQManager"
 ]

@@ -7,8 +7,8 @@ from .settings import RabbitMQSettings
 class RabbitMQManager:
     _connection: Optional[aio_pika.Connection] = None
 
-    def __init__(self):
-        self.settings = RabbitMQSettings()
+    def __init__(self, settings: RabbitMQSettings):
+        self.settings = settings
 
     async def connect(self):
         if self._connection is None:
@@ -21,10 +21,7 @@ class RabbitMQManager:
 
             self._connection = None
 
-rabbitmq_manager = RabbitMQManager()
-
 
 __all__ = [
-    "rabbitmq_manager",
     "RabbitMQManager"
 ]

@@ -1,7 +1,6 @@
-from .manager import postgres_manager, PostgresManager
+from .manager import PostgresManager
 
 
 __all__ = [
-    "postgres_manager",
     "PostgresManager"
 ]
