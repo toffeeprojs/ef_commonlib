@@ -1,0 +1,26 @@
+[project]
+name = "common-lib"
+version = "1.0.0"
+readme = "README.md"
+requires-python = "==3.13.4"
+dependencies = [
+    "pydantic==2.11.7",
+    "pydantic-settings==2.10.1",
+]
+
+[project.optional-dependencies]
+aiogram = [
+    "asyncpg==0.30.0",
+    "aio-pika==9.5.5",
+]
+fastapi = [
+    "asyncpg==0.30.0",
+    "aio-pika==9.5.5",
+    "asynch==0.3.0",
+]
+celery = [
+    "asyncpg==0.30.0",
+    "aiocoingecko==1.0.0",
+    "aiohttp[speedups]==3.12.13",
+    "telethon[cryptg]==1.40.0",
+]
