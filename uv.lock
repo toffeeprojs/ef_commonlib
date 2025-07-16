@@ -237,6 +237,7 @@ name = "common-lib"
 version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "asyncpg" },
     { name = "pydantic" },
     { name = "pydantic-settings" },
 ]
@@ -244,18 +245,15 @@ dependencies = [
 [package.optional-dependencies]
 aiogram = [
     { name = "aio-pika" },
-    { name = "asyncpg" },
 ]
 celery = [
     { name = "aiocoingecko" },
     { name = "aiohttp", extra = ["speedups"] },
-    { name = "asyncpg" },
     { name = "telethon", extra = ["cryptg"] },
 ]
 fastapi = [
     { name = "aio-pika" },
     { name = "asynch" },
-    { name = "asyncpg" },
 ]
 
 [package.metadata]
@@ -265,9 +263,7 @@ requires-dist = [
     { name = "aiocoingecko", marker = "extra == 'celery'", specifier = "==1.0.0" },
     { name = "aiohttp", extras = ["speedups"], marker = "extra == 'celery'", specifier = "==3.12.13" },
     { name = "asynch", marker = "extra == 'fastapi'", specifier = "==0.3.0" },
-    { name = "asyncpg", marker = "extra == 'aiogram'", specifier = "==0.30.0" },
-    { name = "asyncpg", marker = "extra == 'celery'", specifier = "==0.30.0" },
-    { name = "asyncpg", marker = "extra == 'fastapi'", specifier = "==0.30.0" },
+    { name = "asyncpg", specifier = "==0.30.0" },
     { name = "pydantic", specifier = "==2.11.7" },
     { name = "pydantic-settings", specifier = "==2.10.1" },
     { name = "telethon", extras = ["cryptg"], marker = "extra == 'celery'", specifier = "==1.40.0" },
