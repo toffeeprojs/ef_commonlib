@@ -1,29 +1,28 @@
+[build-system]
+requires = ["setuptools==80.9.0"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "common-lib"
-version = "1.0.0"
-readme = "README.md"
-requires-python = "==3.13.4"
+version = "0.1.0"
+requires-python = ">=3.13"
 dependencies = [
     "pydantic==2.11.7",
+    "pydantic-extra-types==2.10.5",
     "pydantic-settings==2.10.1",
-    "asyncpg==0.30.0",
 ]
-
 
 [project.optional-dependencies]
-aiogram = [
+postgres = [
+    "asyncpg==0.30.0",
+]
+rabbitmq = [
     "aio-pika==9.5.5",
 ]
-fastapi = [
-    "aio-pika==9.5.5",
+clickhouse = [
     "asynch==0.3.0",
 ]
-celery = [
-    "aiocoingecko==1.0.0",
-    "aiohttp[speedups]==3.12.13",
-    "telethon[cryptg]==1.40.0",
+http = [
+    "aiohttp[speedups]==3.12.14",
 ]
 
-
-[tool.setuptools]
-packages = ["clickhouse", "coin_gecko", "open_exch_rates", "postgres", "rabbitmq", "telegram"]
