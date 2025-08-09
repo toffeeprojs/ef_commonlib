@@ -33,7 +33,7 @@ class BaseRegistry(Generic[_Settings, _Connection], ABC):
             self._connection = None
 
     @abstractmethod
-    async def _get_connection(self) -> None:
+    async def _get_connection(self) -> _Connection:
         raise NotImplementedError()
 
     @abstractmethod

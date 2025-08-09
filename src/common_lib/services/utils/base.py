@@ -12,6 +12,8 @@ class BaseService(Generic[_Registry]):
         if not hasattr(self, '_registry_classes'):
             raise NotImplementedError()
 
+        self._registries = {}
+
         for name, registry_class in self._registry_classes.items():
             try:
                 registry = registry_class(settings.get(name))
@@ -21,12 +23,14 @@ class BaseService(Generic[_Registry]):
                 self._registries[name] = registry
 
     async def connect(self):
-        for manager in self._registries.values():
-            await manager.connect()
+        for registry in self._registries.values():
+            if registry:
+                await registry.connect()
 
     async def disconnect(self):
-        for manager in self._registries.values():
-            await manager.disconnect()
+        for registry in self._registries.values():
+            if registry:
+                await registry.disconnect()
 
 
 __all__ = ["BaseService"]
